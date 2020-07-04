@@ -1,0 +1,29 @@
+! Verb ;
+
+LEXICON Verb
+0   AGR1 ;
+0   TenseAspect ;
+
+LEXICON AGR1
+1+:nit^   TenseAspect ;
+1+:n^     TenseAspect ;
+2+:kit^   TenseAspect ;
+2+:k^     TenseAspect ;
+3+:ot^    TenseAspect ;
+
+! hard-coded for the different combinations to avoid circular continuations
+LEXICON TenseAspect
+FUT+PERF+:yáak^Ikáá^    VStem ;
+PERF+FUT+:Ikáá^yáák^    VStem ;
+FUT+DUR+:yáak^á^        VStem ;
+PERF+DUR+:Ikáá^a^       VStem ;
+FUT+:yáak^              VStem ;
+PERF+:Ikáá^             VStem ;
+DUR+:á^                 VStem ;
+
+LEXICON VStem
+VII     VIAgr ;
+VAI     VIAgr ;
+VTI     VTAgr ;
+VTA     VTAgr ;
+
