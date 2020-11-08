@@ -1,52 +1,52 @@
 ! glosses based on Frantz 2017
-Multichar_Symbols   1+ 2+ 3+ NAN NIN +1P +21 +2P +3S +3P +4S +4P +AN.P +IN.S +IN.P +NONPARTIC
+! Multichar_Symbols   1+ 2+ 3+ NAN NIN +1P +21 +2P +3S +3P +4S +4P +AN.P +IN.S +IN.P +NONPARTIC
 
 LEXICON Root
-0   PossessivePrefix ;
+! 0   PossessivePrefix ;
 0   NounNotPossessedStem ;
 
-LEXICON PossessivePrefix
-1+:nit^      NounStem ;
-1+:n^        NounStem ;
-2+:kit^      NounStem ;
-2+:k^        NounStem ;
-21+:kit^     NounStem ;
-21+:k^       NounStem ;
-3+:ot^       NounStem ;
-4+:ot^       NounStem ;
+! LEXICON PossessivePrefix
+! 1+:nit^      NounStem ;
+! 1+:n^        NounStem ;
+! 2+:kit^      NounStem ;
+! 2+:k^        NounStem ;
+! 21+:kit^     NounStem ;
+! 21+:k^       NounStem ;
+! 3+:ot^       NounStem ;
+! 4+:ot^       NounStem ;
 
-LEXICON NounStem
-0   NAN ;
-0   NIN ;
-0   NIR ;
-0   NAR ;
+! LEXICON NounStem
+! 0   NAN ;
+! 0   NIN ;
+! 0   NIR ;
+! 0   NAR ;
 
 LEXICON NounNotPossessedStem
 0   NAN ;
 0   NIN ;
 
-LEXICON PossessiveSuffix
-0               Agr ;
-+1P:^innaan     Agr ;
-+21P:^innoon    Agr ;
-+2P:^oaawa      Agr ;
-+3P:^oaawa      Agr ;
-+4S:^wa         Agr ;
-+4P:^oaawa      Agr ;
+! LEXICON PossessiveSuffix
+! 0               Agr ;
+! +1P:^innaan     Agr ;
+! +21P:^innoon    Agr ;
+! +2P:^oaawa      Agr ;
+! +3P:^oaawa      Agr ;
+! +4S:^wa         Agr ;
+! +4P:^oaawa      Agr ;
 
-LEXICON Agr
-0   NANAgr ;
-0   NINAgr ;
+! LEXICON Agr
+! 0   NANAgr ;
+! 0   NINAgr ;
 
 LEXICON NANAgr
-+3S:^wa          # ;  ! animate singular suffix (major third person)
-+AN.P:^iksi      # ;  ! animate plural suffix
-+NONPARTIC:^yi   # ;  ! non-particular suffix, causes deletion of non-permanent consonants, IMPLEMENT
++3S:^wa          # ;  ! animate singular suffix (major third person), retains non-permanent consonants
++AN.P:^iksi      # ;  ! animate plural suffix, causes deletion of non-permanent consonants
++NONPARTIC:^i    # ;  ! non-particular suffix, causes deletion of non-permanent consonants
 +4S:^yi          # ;  ! minor third person suffix, retains non-permanent consonants
 
 LEXICON NINAgr
 +IN.S:^yi        # ; ! inanimate singular suffix, retains non-permanent consonants
-+IN.P:^istsi     # ; ! inanimate plural suffix
++IN.P:^istsi     # ; ! inanimate plural suffix, causes deletion of non-permanent consonants
 
 LEXICON NAN
 natáyo      NANAgr ;
@@ -57,14 +57,19 @@ kakkóó      NANAgr ;
 mamíí       NANAgr ;
 atapíím     NANAgr ;
 póós        NANAgr ;
+moksíS      NANAgr ;
+to'ahsiM    NANAgr ;
+pokóN       NANAgr ;
+isttoáN     NANAgr ;
+áwanááN     NANAgr ;
 
-LEXICON NAR
-iksisst     PossessiveSuffix ;
-ohko        PossessiveSuffix ;
-itan        PossessiveSuffix ;
-i's         PossessiveSuffix ;
-ookoowa     PossessiveSuffix ;
-ota's       PossessiveSuffix ;
+! LEXICON NAR
+! iksisst     PossessiveSuffix ;
+! ohko        PossessiveSuffix ;
+! itan        PossessiveSuffix ;
+! i's         PossessiveSuffix ;
+! ookoowa     PossessiveSuffix ;
+! ota's       PossessiveSuffix ;
 
 LEXICON NIN
 í'ksisako   NINAgr ;    ! stems end in vowel
@@ -84,3 +89,6 @@ mo'tokáán   NINAgr ;
 míín        NINAgr ;
 iitáómio'p  NINAgr ;
 soyópok     NINAgr ;
+máíipssiM   NINAgr ;    ! stems end in non-permanent C
+asóka'siM   NINAgr ;
+atsikíN     NINAgr ;

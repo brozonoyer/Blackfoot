@@ -6,7 +6,7 @@ define CONS [m|M|n|N|p|t|k|s|S|ts|ks|h|’] ;
 define SEMI [w|y] ;
 define VOW [a|i|o|á|í|ó|I] ; # no way to represent suprasegmentals?
 define ACCENT [á|í|ó] ; # vowels with pitch accent
-define NONPERM [M|N|I] ; # non-permanent segments
+define NONPERM [I|M|N|S] ; # non-permanent segments
 
 
 # ALLOMORPHY
@@ -17,27 +17,27 @@ define Allomorphy PossessiveAllomorphs ;
 
 # PHONOLOGICAL RULES
 
+# Appendix B, rule 10 (p.177)
 define VowelShortening [ {aa} -> a, {ii} -> i, {oo} -> o, {áá} -> á, {íí} -> í, {óó} -> ó || _ %^ VOW ] ;
-! fix to make relevant at morpheme boundaries
 ! how about e.g. {áa} -> a ??? look for examples in grammar
-! precedes AccentSpread (p.10)
+
+# non-permanent C loss before pluralizers and non-particular suffix
+! define NonPermanentConsonantLoss [ NONPERM -> 0 || _ [%^i|%^iksi|%^istsi] .#. ] ;
+define NonPermanentConsonantLoss [ NONPERM -> 0 ] ;
 
 define IgnoreMorphemeBoundary [ %^ -> 0 ] ;
-! delete morpheme boundary representations to allow for rules that don't respect it
-! all rules respecting morpheme boundary must precede it, all other rules must follow
+define IgnoreNonPermanentConsonant [ M -> m, N -> n, S -> s ] ;
 
 define AccentSpread [ a -> á, i -> í, o -> ó || ACCENT _ ] ;
 
+# Appendix B, rule 15 (p.177)
 define SemivowelLoss [ SEMI -> 0 || [.#.|CONS] _ ] ; ! doesn't interact with VowelShortening/AccentSpread
 
-define Phonology [ VowelShortening .o. IgnoreMorphemeBoundary .o. AccentSpread ] .o. SemivowelLoss ;
-
-
+define Phonology [ VowelShortening .o. NonPermanentConsonantLoss .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant .o. AccentSpread ] .o. SemivowelLoss ;
 
 define Rules [ Allomorphy .o. Phonology ] ;
 
-
-read lexc blackfoot_noun.lexc
+read lexc blackfoot.lexc
 define Lexicon;
 
 regex [ Lexicon .o. Rules ] ;
