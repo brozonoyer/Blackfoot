@@ -22,8 +22,7 @@ define VowelShortening [ {aa} -> a, {ii} -> i, {oo} -> o, {áá} -> á, {íí} -
 ! how about e.g. {áa} -> a ??? look for examples in grammar
 
 # non-permanent C loss before pluralizers and non-particular suffix
-! define NonPermanentConsonantLoss [ NONPERM -> 0 || _ [%^i|%^iksi|%^istsi] .#. ] ;
-define NonPermanentConsonantLoss [ NONPERM -> 0 ] ;
+define NonPermanentConsonantLoss [ NONPERM -> 0 || _ %^ <i|iksi|istsi> .#. ] ;
 
 define IgnoreMorphemeBoundary [ %^ -> 0 ] ;
 define IgnoreNonPermanentConsonant [ M -> m, N -> n, S -> s ] ;
@@ -34,6 +33,7 @@ define AccentSpread [ a -> á, i -> í, o -> ó || ACCENT _ ] ;
 define SemivowelLoss [ SEMI -> 0 || [.#.|CONS] _ ] ; ! doesn't interact with VowelShortening/AccentSpread
 
 define Phonology [ VowelShortening .o. NonPermanentConsonantLoss .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant .o. AccentSpread ] .o. SemivowelLoss ;
+! define Phonology [ VowelShortening .o. NonPermanentConsonantLoss .o. AccentSpread ] .o. SemivowelLoss ;
 
 define Rules [ Allomorphy .o. Phonology ] ;
 
