@@ -2,38 +2,37 @@
 #          Blackfoot Morphology          #
 ##########################################
 
-define CONS [m|M|n|N|p|t|k|s|S|ts|ks|h|’] ;
+define CONS [m|M|n|N|p|t|k|s|S|ts|ks|h|'] ;
 define SEMI [w|y] ;
 define VOW [a|i|o|á|í|ó|I] ; # no way to represent suprasegmentals?
 define ACCENT [á|í|ó] ; # vowels with pitch accent
 define NONPERM [I|M|N|S] ; # non-permanent segments
 
-
 # ALLOMORPHY
 
+define InitialNasalLoss [ m -> 0 || ?* %^ _ ] ;
 define PossessiveAllomorphs [ %^innaan -> %^nnaan, %^innoon -> %^nnoon || [i|a|w|y] _ ] ; # p.81 footnote 14
 
 define Allomorphy PossessiveAllomorphs ;
 
 # PHONOLOGICAL RULES
 
-# Appendix B, rule 10 (p.177)
 define VowelShortening [ {aa} -> a, {ii} -> i, {oo} -> o, {áá} -> á, {íí} -> í, {óó} -> ó || _ %^ VOW ] ;
-! how about e.g. {áa} -> a ??? look for examples in grammar
 
-# non-permanent C loss before pluralizers and non-particular suffix
-define NonPermanentConsonantLoss [ NONPERM -> 0 || _ %^ <i|iksi|istsi> .#. ] ;
+define NonPermanentConsonantLoss [ NONPERM -> 0 || _  %^i|{^iksi}|{^istsi} .#. ] ;
+
+define AccentSpread [ a -> á, i -> í, o -> ó || ACCENT %^ _ ] ;
 
 define IgnoreMorphemeBoundary [ %^ -> 0 ] ;
 define IgnoreNonPermanentConsonant [ M -> m, N -> n, S -> s ] ;
 
-define AccentSpread [ a -> á, i -> í, o -> ó || ACCENT _ ] ;
+define tAffrication [ t -> ts || _ %^i|%^í ] ;
 
-# Appendix B, rule 15 (p.177)
+define Coalescence [ {wi} -> o, {wii} -> o ] ;
+
 define SemivowelLoss [ SEMI -> 0 || [.#.|CONS] _ ] ; ! doesn't interact with VowelShortening/AccentSpread
 
-define Phonology [ VowelShortening .o. NonPermanentConsonantLoss .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant .o. AccentSpread ] .o. SemivowelLoss ;
-! define Phonology [ VowelShortening .o. NonPermanentConsonantLoss .o. AccentSpread ] .o. SemivowelLoss ;
+define Phonology VowelShortening .o. NonPermanentConsonantLoss .o. tAffrication .o. AccentSpread .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant .o. Coalescence .o. SemivowelLoss ;
 
 define Rules [ Allomorphy .o. Phonology ] ;
 

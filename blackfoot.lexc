@@ -2,31 +2,33 @@
 ! Multichar_Symbols   1+ 2+ 3+ NAN NIN +1P +21 +2P +3S +3P +4S +4P +AN.P +IN.S +IN.P +NONPARTIC
 
 LEXICON Root
-! 0   PossessivePrefix ;
+0   PossessivePrefix ;
 0   NounNotPossessedStem ;
 
-! LEXICON PossessivePrefix
-! 1+:nit^      NounStem ;
-! 1+:n^        NounStem ;
-! 2+:kit^      NounStem ;
-! 2+:k^        NounStem ;
-! 21+:kit^     NounStem ;
-! 21+:k^       NounStem ;
-! 3+:ot^       NounStem ;
-! 4+:ot^       NounStem ;
+LEXICON PossessivePrefix
+1+:nit^      NounPossessedStem ;
+1+:n^        NounPossessedStem ;
+2+:kit^      NounPossessedStem ;
+2+:k^        NounPossessedStem ;
+21+:kit^     NounPossessedStem ;
+21+:k^       NounPossessedStem ;
+3+:w^        NounPossessedStem ;
+3+:ot^       NounPossessedStem ;
+4+:w^        NounPossessedStem ;
+4+:ot^       NounPossessedStem ;
 
-! LEXICON NounStem
+LEXICON NounPossessedStem
+0   NAR ;
 ! 0   NAN ;
 ! 0   NIN ;
 ! 0   NIR ;
-! 0   NAR ;
 
 LEXICON NounNotPossessedStem
 0   NAN ;
 0   NIN ;
 
-! LEXICON PossessiveSuffix
-! 0               Agr ;
+LEXICON PossessiveSuffix
+0               Agr ;
 ! +1P:^innaan     Agr ;
 ! +21P:^innoon    Agr ;
 ! +2P:^oaawa      Agr ;
@@ -34,8 +36,8 @@ LEXICON NounNotPossessedStem
 ! +4S:^wa         Agr ;
 ! +4P:^oaawa      Agr ;
 
-! LEXICON Agr
-! 0   NANAgr ;
+LEXICON Agr
+0   NANAgr ;
 ! 0   NINAgr ;
 
 LEXICON NANAgr
@@ -49,8 +51,37 @@ LEXICON NINAgr
 +IN.P:^istsi     # ; ! inanimate plural suffix, causes deletion of non-permanent consonants
 
 LEXICON NAN
+ááattsistaa:ááattistaa      NANAgr ;    ! ááattsistaiksi, nitááattsistaama, pokááattsistaawa, omahkááattsistaawa
+ááhsowa      NANAgr ;
+ááhsoa      NANAgr ;
+aakáíksimonniipokaa      NANAgr ;
+aakáísatstsaa      NANAgr ;
+aakáísta'ao      NANAgr ;
+aakáókiinaa      NANAgr ;
+aakíí      NANAgr ;
+kaahksik      NANAgr ;
+kaahtomáán      NANAgr ;    ! kaahtomáániksi, kikahtómaaniksi
+kaahtomiN      NANAgr ;     ! kaahtomííksi, kikahtominnooniksi
+kaanaisskiinaa  NANAgr ;    ! káánaisskiinaiksi, ómahksikánaisskiinaawa
+kaawá'pomaahkaa NANAgr ;    ! kaawá'pomaahkaiksi
+kááyii  NANAgr ;            ! pokohkááyiiksi
+kaaysskááhp NANAgr ;        ! kaaysskááhpiksi
+kááy'sspaa  NANAgr ;        ! kááy'sspaiksi
+maaáí     NANAgr ;        ! naaáíksi, maaáíwa
+maiáí       NANAgr ;
+máakááhkima'tsis    NANAgr ;     ! otáakááhkima'tsiiksi
+maanitápi   NANAgr ;    ! maanitápiiksi, i'nakánitapiwa
+miistsíS:miistíS    NANAgr ;    ! miistsííksi, nitsíístsiima, ómahksiistsisa
+miistsoohtaapiikammaa   NANAgr ;    ! Miistsóóhtaapiikammaiksi
+náápi       NANAgr ;    ! náápiiksi, náápiaakii, náápiikoan
+náápiáakii  NANAgr ;    ! ómahksáápiáákiiksi, náápiaakiiwa
+náápiikoaN  NANAgr ;    ! náápiikoaiksi, poksáápiikoana
 natáyo      NANAgr ;
 naató'si    NANAgr ;
+oápssp    NANAgr ;
+ohkiááyo    NANAgr ;
+ohkiimaan   NANAgr ;    ! nitohkíímaaniksi, otohkíímaani
+paahkoomokonaisikaayayi NANAgr ;    ! paahkoomokonaisikaayayiiksi
 ponoká      NANAgr ;
 nínaa       NANAgr ;
 kakkóó      NANAgr ;
@@ -63,32 +94,45 @@ pokóN       NANAgr ;
 isttoáN     NANAgr ;
 áwanááN     NANAgr ;
 
-! LEXICON NAR
-! iksisst     PossessiveSuffix ;
-! ohko        PossessiveSuffix ;
-! itan        PossessiveSuffix ;
-! i's         PossessiveSuffix ;
-! ookoowa     PossessiveSuffix ;
-! ota's       PossessiveSuffix ;
+LEXICON NAR
+aaáhs       PossessiveSuffix ;                                      ! naaáhsiksi, maaáhsi
+aakiaaahs   PossessiveSuffix ;                                      ! nitáákiaaahsiksi, otáákiaaahsi, aakiyaahs
+aakiyaahs   PossessiveSuffix ;
+áákiim      PossessiveSuffix ;                                      ! nitáákiimiksi, otáákiimiksi, nimáátaakiima
+áwahkahtaan PossessiveSuffix ;                                      ! nitáwahkahtaaniksi
+iihkawa     PossessiveSuffix ;                                      ! otsííhkawayi, nitsííhkawaiksi, iihkowa, iihkawaan
+iihkowa     PossessiveSuffix ;
+iihkawaan   PossessiveSuffix ;   ! or iihkawaaN?
+iihsiss     PossessiveSuffix ;                                      ! otómahkohsissi, ohsíssiksi, nissíssa
+ikííhtsimaan    PossessiveSuffix ;                                  ! nikííhtsimaaniksi, nikííhtsimáánaatsi?, tsá kaanistápiiwa kííhtsimáánaatsi?
+iksísst     PossessiveSuffix ;                                      ! niksísstsiksi, oksísstsi
+ohko        PossessiveSuffix ;
+itan        PossessiveSuffix ;
+i's         PossessiveSuffix ;
+ookoowa     PossessiveSuffix ;
+ota's       PossessiveSuffix ;
 
 LEXICON NIN
-í'ksisako   NINAgr ;    ! stems end in vowel
-ápssi       NINAgr ;
-ómahksíkimi NINAgr ;
-ni'tómmo    NINAgr ;
-ómahksíksko NINAgr ;
-matsiní     NINAgr ;    ! stems end in accented vowel
-pootsisí    NINAgr ;
+aaápaN  NINAgr ;                                                    ! aaápaistsi, nitsáápani, mi'ksáápani
+aaápaoo'ssiN    NINAgr ;                                            ! aaápaoo'ssiistsi
 aatakó      NINAgr ;
-niiítahtaa  NINAgr ;    ! stems end in long vowel
-sísstsiksii NINAgr ;
-páyoo       NINAgr ;
 aohkíí      NINAgr ;
-paatáák     NINAgr ;    ! stems end in consonant
-mo'tokáán   NINAgr ;
-míín        NINAgr ;
-iitáómio'p  NINAgr ;
-soyópok     NINAgr ;
-máíipssiM   NINAgr ;    ! stems end in non-permanent C
+ápssi       NINAgr ;
 asóka'siM   NINAgr ;
 atsikíN     NINAgr ;
+iitáómio'p  NINAgr ;
+í'ksisako   NINAgr ;
+máíipssiM   NINAgr ;
+matsiní     NINAgr ;
+míín        NINAgr ;
+mo'tokáán   NINAgr ;
+mo'tsíS     NINAgr ;
+niiítahtaa  NINAgr ;
+ni'tómmo    NINAgr ;
+ómahksíkimi NINAgr ;
+ómahksíksko NINAgr ;
+paatáák     NINAgr ;
+páyoo       NINAgr ;
+pootsisí    NINAgr ;
+sísstsiksii NINAgr ;
+soyópok     NINAgr ;
