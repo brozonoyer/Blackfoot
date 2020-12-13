@@ -10,10 +10,11 @@ define NONPERM [I|M|N|S] ; # non-permanent segments
 
 # ALLOMORPHY
 
-define InitialNasalLoss [ m -> 0 || ?* %^ _ ] ;
+define StemInitialNasalLoss [ m -> 0 || %^ _ ] ;
+define ThirdPersonPrefixMutation [ w -> m || .#. _ {^a} ] ;  ! p.81
 define PossessiveAllomorphs [ %^innaan -> %^nnaan, %^innoon -> %^nnoon || [i|a|w|y] _ ] ; # p.81 footnote 14
 
-define Allomorphy PossessiveAllomorphs ;
+define Allomorphy StemInitialNasalLoss .o. ThirdPersonPrefixMutation .o. PossessiveAllomorphs ;
 
 # PHONOLOGICAL RULES
 
