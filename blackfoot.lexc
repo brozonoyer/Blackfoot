@@ -33,6 +33,7 @@ LEXICON PossessiveSuffix
 +4P:^oaawa      Agr ;
 
 LEXICON Agr
+0   # ;
 0   NANAgr ;
 0   NINAgr ;
 
@@ -44,7 +45,7 @@ LEXICON NANAgr
 
 LEXICON NINAgr
 +IN.S:^yi        # ; ! inanimate singular suffix, retains non-permanent consonants
-+IN.P:^istsi     # ; ! inanimate plural suffix, causes deletion of non-permanent consonants
++IN.P:^isti     # ; ! inanimate plural suffix, causes deletion of non-permanent consonants
 
 LEXICON NAN
 ááattsistaa      NANAgr ;    ! ááattsistaiksi, nitááattsistaama, pokááattsistaawa, omahkááattsistaawa
@@ -55,6 +56,9 @@ aakáísatstsaa      NANAgr ;
 aakáísta'ao      NANAgr ;
 aakáókiinaa      NANAgr ;
 aakíí      NANAgr ;
+ató'ahsiM   NANAgr ;
+atsíS      NANAgr ;
+awanááN     NANAgr ;
 kaahksik      NANAgr ;
 kaahtomáán      NANAgr ;    ! kaahtomáániksi, kikahtómaaniksi
 kaahtomiN      NANAgr ;     ! kaahtomííksi, kikahtominnooniksi
@@ -78,6 +82,7 @@ oápssp    NANAgr ;
 ohkiááyo    NANAgr ;
 ohkiimaan   NANAgr ;    ! nitohkíímaaniksi, otohkíímaani
 paahkoomokonaisikaayayi NANAgr ;    ! paahkoomokonaisikaayayiiksi
+pokóN       NANAgr ;
 ponoká      NANAgr ;
 nínaa       NANAgr ;
 kakkóó      NANAgr ;
@@ -100,7 +105,7 @@ iihkawa     PossessiveSuffix ;                                      ! otsííhka
 iihkowa     PossessiveSuffix ;
 iihkawaan   PossessiveSuffix ;   ! or iihkawaaN?
 iihsiss     PossessiveSuffix ;                                      ! otómahkohsissi, ohsíssiksi, nissíssa
-ikííhtsimaan    PossessiveSuffix ;                                  ! nikííhtsimaaniksi, nikííhtsimáánaatsi?, tsá kaanistápiiwa kííhtsimáánaatsi?
+ikííhtsimaan:ikííhtimaan    PossessiveSuffix ;                                  ! nikííhtsimaaniksi, nikííhtsimáánaatsi?, tsá kaanistápiiwa kííhtsimáánaatsi?
 iksísst     PossessiveSuffix ;                                      ! niksísstsiksi, oksísstsi
 ohko        PossessiveSuffix ;
 itan        PossessiveSuffix ;
@@ -116,21 +121,26 @@ aatakó      NINAgr ;
 aohkíí      NINAgr ;
 ápssi       NINAgr ;
 asóka'siM   NINAgr ;
-atsikíN     NINAgr ;
+atsikíN:atikíN     NINAgr ;
 iitáómio'p  NINAgr ;
 í'ksisako   NINAgr ;
 máíipssiM   NINAgr ;
-matsiní     NINAgr ;
+matsiní:matiní     NINAgr ;
 míín        NINAgr ;
 móókoan     NINAgr ;
 mo'tokáán   NINAgr ;
-mo'tsíS     NINAgr ;
+mo'tsíS:mo'tíS     NINAgr ;
 niiítahtaa  NINAgr ;
 ni'tómmo    NINAgr ;
 ómahksíkimi NINAgr ;
 ómahksíksko NINAgr ;
 paatáák     NINAgr ;
 páyoo       NINAgr ;
-pootsisí    NINAgr ;
-sísstsiksii NINAgr ;
+pootsisí:pootisí    NINAgr ;
+sísstsiksii:sísstiksii NINAgr ;
 soyópok     NINAgr ;
+
+LEXICON NIR
+inihka'sim  PossessiveSuffix ;
+ookóówa PossessiveSuffix ;
+saayiimi PossessiveSuffix ;

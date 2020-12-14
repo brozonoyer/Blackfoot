@@ -12,7 +12,7 @@ define NONPERM [I|M|N|S] ; # non-permanent segments
 
 define StemInitialNasalLoss [ m -> 0 || %^ _ ] ;
 define ThirdPersonPrefixMutation [ w -> m || .#. _ {^a} ] ;  ! p.81
-define PossessiveAllomorphs [ %^innaan -> %^nnaan, %^innoon -> %^nnoon || [i|a|w|y] _ ] ; # p.81 footnote 14
+define PossessiveAllomorphs [ {^innaan} -> {^nnaan}, {^innoon} -> {^nnoon} || [i|a|w|y] _ ] ; # p.81 footnote 14
 
 define Allomorphy StemInitialNasalLoss .o. ThirdPersonPrefixMutation .o. PossessiveAllomorphs ;
 
@@ -20,20 +20,20 @@ define Allomorphy StemInitialNasalLoss .o. ThirdPersonPrefixMutation .o. Possess
 
 define VowelShortening [ {aa} -> a, {ii} -> i, {oo} -> o, {áá} -> á, {íí} -> í, {óó} -> ó || _ %^ VOW ] ;
 
-define NonPermanentConsonantLoss [ NONPERM -> 0 || _  %^i|{^iksi}|{^istsi} .#. ] ;
+define NonPermanentConsonantLoss [ NONPERM -> 0 || _  {^i}|{^iksi}|{^istsi} .#. ] ;
 
 define AccentSpread [ a -> á, i -> í, o -> ó || ACCENT %^ _ ] ;
 
 define IgnoreMorphemeBoundary [ %^ -> 0 ] ;
 define IgnoreNonPermanentConsonant [ M -> m, N -> n, S -> s ] ;
 
-define tAffrication [ t -> ts || _ %^i|%^í ] ;
+define tAffrication [ t -> ts || _ [i|í] ] ;
 
 define Coalescence [ {wi} -> o, {wii} -> o ] ;
 
 define SemivowelLoss [ SEMI -> 0 || [.#.|CONS] _ ] ; ! doesn't interact with VowelShortening/AccentSpread
 
-define Phonology VowelShortening .o. NonPermanentConsonantLoss .o. tAffrication .o. AccentSpread .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant .o. Coalescence .o. SemivowelLoss ;
+define Phonology VowelShortening .o. NonPermanentConsonantLoss .o. AccentSpread .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant .o. Coalescence .o. tAffrication .o. SemivowelLoss ;
 
 define Rules [ Allomorphy .o. Phonology ] ;
 
