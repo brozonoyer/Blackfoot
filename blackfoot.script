@@ -2,7 +2,7 @@
 #          Blackfoot Morphology          #
 ##########################################
 
-define CONS [m|M|n|N|p|t|k|s|S|ts|ks|h|'] ;
+define CONS [m|M|n|N|p|t|k|s|S|h|'] ;
 define SEMI [w|y] ;
 define VOW [a|i|o|á|í|ó|I] ; # no way to represent suprasegmentals?
 define ACCENT [á|í|ó] ; # vowels with pitch accent
@@ -18,22 +18,23 @@ define Allomorphy StemInitialNasalLoss .o. ThirdPersonPrefixMutation .o. Possess
 
 # PHONOLOGICAL RULES
 
-define VowelShortening [ {aa} -> a, {ii} -> i, {oo} -> o, {áá} -> á, {íí} -> í, {óó} -> ó || _ %^ VOW ] ;
+define SemivowelLoss [ SEMI -> 0 || [.#.|CONS] %^ _ ] ;
 
-define NonPermanentConsonantLoss [ NONPERM -> 0 || _  {^i}|{^iksi}|{^istsi} .#. ] ;
+# define NonPermanentConsonantLoss [ NONPERM -> 0 || _  {^i}|{^iksi}|{^istsi} .#. ] ;
+define NonPermanentConsonantLoss [ NONPERM -> 0 || _ %^ VOW ] ;  ! see analysis in ch.15
+
+define VowelShortening [ {aa} -> a, {ii} -> i, {oo} -> o, {áá} -> á, {íí} -> í, {óó} -> ó || _ %^ VOW ] ;
 
 define AccentSpread [ a -> á, i -> í, o -> ó || ACCENT %^ _ ] ;
 
 define IgnoreMorphemeBoundary [ %^ -> 0 ] ;
 define IgnoreNonPermanentConsonant [ M -> m, N -> n, S -> s ] ;
 
-define tAffrication [ t -> ts || _ [i|í] ] ;
+define tAffrication [ t -> {ts} || _ [i|í] ] ;
 
-define Coalescence [ {wi} -> o, {wii} -> o ] ;
+define Coalescence [ {w^i} -> o, {w^ii} -> o, {w^í} -> ó, {w^íí} -> ó ] ;
 
-define SemivowelLoss [ SEMI -> 0 || [.#.|CONS] _ ] ; ! doesn't interact with VowelShortening/AccentSpread
-
-define Phonology VowelShortening .o. NonPermanentConsonantLoss .o. AccentSpread .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant .o. Coalescence .o. tAffrication .o. SemivowelLoss ;
+define Phonology  NonPermanentConsonantLoss .o. VowelShortening .o. AccentSpread .o. tAffrication .o. Coalescence .o. SemivowelLoss .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant;
 
 define Rules [ Allomorphy .o. Phonology ] ;
 
