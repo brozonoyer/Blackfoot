@@ -6,6 +6,7 @@ define CONS [m|M|n|N|p|t|k|s|S|h|'] ;
 define NASAL [m|M|n|N] ;
 define SEMI [w|y] ;
 define VOW [a|i|o|á|í|ó|I] ; # no way to represent suprasegmentals?
+define UNACCENTEDVOWEL [a|i|o|I] ;
 define ACCENT [á|í|ó] ; # vowels with pitch accent
 define NONPERM [I|M|N|S] ; # non-permanent segments
 
@@ -34,7 +35,9 @@ define tAffrication [ t -> {ts} || _ %^ [i|í] ] ;
 
 define Coalescence [ {w^i} -> o, {w^ii} -> o, {w^í} -> ó, {w^íí} -> ó ] ;
 
-define Phonology NonPermanentConsonantLoss .o. VowelShortening .o. AccentSpread .o. tAffrication .o. Coalescence .o. SemivowelLoss .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant;
+define Desyllabification [ i -> y, o -> w || UNACCENTEDVOWEL _ UNACCENTEDVOWEL ] ;
+
+define Phonology Coalescence .o. SemivowelLoss .o. NonPermanentConsonantLoss .o. VowelShortening .o. AccentSpread .o. tAffrication .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant.o. Desyllabification;
 
 define Rules [ Allomorphy .o. Phonology ] ;
 
