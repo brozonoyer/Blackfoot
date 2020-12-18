@@ -1,15 +1,35 @@
 # A Morphological Analyzer for Blackfoot Nouns
 
-This analyzer is implemented with the Helsinki Finite-State Transducer toolkit. Please refer to [their Download And Install page](https://github.com/hfst/hfst/wiki/Download-And-Install) to install it on your system.
+This analyzer takes Frantz’s (2017) *Blackfoot Grammar* and *Blackfoot Dictionary* as a reference for Blackfoot phonology, morphology, and standardized orthography.
+
+This analyzer is implemented with the [Helsinki Finite-State Technology toolkit](https://github.com/hfst/hfst/wiki). Please refer to their [Download And Install](https://github.com/hfst/hfst/wiki/Download-And-Install) page to get the right version for your system (I developed this with the Mac OS X version).
 
 Start up `hsft-xfst` from `blackfoot.script`, which encodes phonological and allomorphy rules, and composes them with the lexicon defined in `blackfoot.lexc`:
 
 ```<PATH>/<TO>/hfst/bin/hfst-xfst -l blackfoot.script```
 
-To generate a surface form from an abstract representation (refer to `blackfoot.lexc` for the full list of multicharacter symbols):
+To generate a surface form from an abstract representation (refer to `blackfoot.lexc` for the full list of multicharacter symbols/glosses):
 
-`apply down natáyo+3S` –> `natáyowa`
+```
+hfst[1]: apply down natáyo+3S
+natáyowa
+```
 
 To analyze a surface form:
 
-`apply up kakkóíksi` –> `kakkóó+AN.P`
+```
+hfst[1]: apply up kakkóíksi
+kakkóó+AN.P
+```
+
+Please address any questions or suggestions to `brozonoyer@brandeis.edu`.
+
+## References
+
+Donald G. Frantz. 2017. *Blackfoot Grammar*, 3 edition. University of Toronto Press.
+
+Donald G. Frantz and Norma Jean Russell. 2017. *Blackfoot Dictionary of Stems, Roots, and Affixes*, 3 edition. University of Toronto Press.
+
+University of Helsinki. 2003-2008. Helsinki Finite State Technology (HFST).
+
+Kenneth R. Beesley and Lauri Karttunen. 2003. *Finite State Morphology*. CSLI Publications.
