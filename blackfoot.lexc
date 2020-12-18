@@ -48,6 +48,7 @@ LEXICON NINAgr
 +IN.P:^istsi     # ; ! inanimate plural suffix, causes deletion of non-permanent consonants
 
 LEXICON NAN
+aaápaN      NANAgr ;
 ááattsistaa      NANAgr ;    ! ááattsistaiksi, nitááattsistaama, pokááattsistaawa, omahkááattsistaawa
 ááhsowa      NANAgr ;
 ááhsoa      NANAgr ;
@@ -56,6 +57,8 @@ aakáísatstsaa      NANAgr ;
 aakáísta'ao      NANAgr ;
 aakáókiinaa      NANAgr ;
 aakíí      NANAgr ;
+aan      NANAgr ;
+aanáó'kitapiikoaN      NANAgr ;
 ató'ahsiM   NANAgr ;
 atsíS      NANAgr ;
 áwanááN      NANAgr ;
@@ -109,6 +112,8 @@ ikííhtsimaan    PossessiveSuffix ;                                  ! nikííh
 iksimmotsiim    PossessiveSuffix ;
 iksísst     PossessiveSuffix ;                                      ! niksísstsiksi, oksísstsi
 ikso'kowa   PossessiveSuffix ;
+i's         PossessiveSuffix ;
+i'sohkiimaan    PossessiveSuffix ;
 imss        PossessiveSuffix ;
 inaaáhs     PossessiveSuffix ;
 inaapiim    PossessiveSuffix ;
