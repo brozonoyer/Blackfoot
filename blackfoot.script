@@ -37,7 +37,7 @@ define Coalescence [ {w^i} -> o, {w^ii} -> o, {w^í} -> ó, {w^íí} -> ó ] ;
 
 define Desyllabification [ i -> y, o -> w || UNACCENTEDVOWEL _ UNACCENTEDVOWEL ] ;
 
-define Phonology Coalescence .o. SemivowelLoss .o. NonPermanentConsonantLoss .o. VowelShortening .o. AccentSpread .o. tAffrication .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant.o. Desyllabification;
+define Phonology Coalescence .o. NonPermanentConsonantLoss .o. SemivowelLoss .o. VowelShortening .o. AccentSpread .o. tAffrication .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant.o. Desyllabification;
 
 define Rules [ Allomorphy .o. Phonology ] ;
 
