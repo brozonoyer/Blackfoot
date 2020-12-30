@@ -2,10 +2,10 @@
 #          Blackfoot Morphology          #
 ##########################################
 
-define CONS [m|M|n|N|p|t|k|s|S|h|'] ;
+define CONS [m|M|n|N|p|t|k|s|S|h] ; # include ' in VOW instead of CONS
 define NASAL [m|M|n|N] ;
 define SEMI [w|y] ;
-define VOW [a|i|o|á|í|ó|I] ; # no way to represent suprasegmentals?
+define VOW [a|i|o|á|í|ó|I|'] ; # no way to represent suprasegmentals?
 define UNACCENTEDVOWEL [a|i|o|I] ;
 define ACCENT [á|í|ó] ; # vowels with pitch accent
 define NONPERM [I|M|N|S] ; # non-permanent segments
@@ -20,7 +20,7 @@ define Allomorphy StemInitialNasalLoss .o. ThirdPersonPrefixMutation .o. Possess
 
 # PHONOLOGICAL RULES
 
-define SemivowelLoss [ SEMI -> 0 || [.#.|CONS] %^ _ ] ;
+define SemivowelLoss [ SEMI -> 0 || .#.|[CONS %^] _ ] ;
 
 define NonPermanentConsonantLoss [ NONPERM -> 0 || _ %^ VOW ] ;  ! see analysis in ch.15
 
