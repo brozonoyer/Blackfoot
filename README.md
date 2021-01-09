@@ -24,7 +24,7 @@ hfst[1]: apply up kakkóíksi
 kakkóó+AN.P
 ```
 
-Please address any questions or suggestions to `brozonoyer@brandeis.edu`.
+Please address any questions or suggestions to `brozonoyer@brandeis.edu` or `erikandersen@brandeis.edu`.
 
 ## References
 
