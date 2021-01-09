@@ -46,6 +46,7 @@ LEXICON NANAgr
 LEXICON NINAgr
 +IN.S:^yi        # ; ! inanimate singular suffix, retains non-permanent consonants
 +IN.P:^istsi     # ; ! inanimate plural suffix, causes deletion of non-permanent consonants
++NONPARTIC:^i    # ;
 
 LEXICON NAN
 aaápaN      NANAgr ;
