@@ -26,7 +26,7 @@ define NonPermanentConsonantLoss [ NONPERM -> 0 || _ %^ VOW ] ;  ! see analysis 
 
 define VowelShortening [ {aa} -> a, {ii} -> i, {oo} -> o, {áá} -> á, {íí} -> í, {óó} -> ó || _ %^ VOW ] ;
 
-define AccentSpread [ a -> á, i -> í, o -> ó || ACCENT %^ _ ] ;
+define AccentSpread [ a -> á, i -> í, o -> ó || ACCENT %^ _ ] ;  ! apply at morpheme boundaries to prevent /mohsóóa'tsiS/ from appearing as [mohsóóá'tsiS]
 
 define IgnoreMorphemeBoundary [ %^ -> 0 ] ;
 define IgnoreNonPermanentConsonant [ M -> m, N -> n, S -> s ] ;
@@ -35,7 +35,7 @@ define tAffrication [ t -> {ts} || _ %^ [i|í] ] ;
 
 define Coalescence [ {w^i} -> o, {w^ii} -> o, {w^í} -> ó, {w^íí} -> ó ] ;
 
-define Desyllabification [ i -> y, o -> w || UNACCENTEDVOWEL _ UNACCENTEDVOWEL ] ;
+define Desyllabification [ i -> y, o -> w || UNACCENTEDVOWEL _ UNACCENTEDVOWEL ] ;  ! /oaawa/ -> [waawa] in nookóówawaawaiksi
 
 define Phonology Coalescence .o. NonPermanentConsonantLoss .o. SemivowelLoss .o. VowelShortening .o. AccentSpread .o. tAffrication .o. IgnoreMorphemeBoundary .o. IgnoreNonPermanentConsonant.o. Desyllabification;
 
